@@ -1,0 +1,16 @@
+<%= form_for @req do |f| %>
+  <%= f.label "Name" %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <br>
+  <%= f.label :dept %>
+  <%= f.text_field :dept %>
+  <br>
+  <%= f.label :msg %>
+  <%= f.text_area :msg %>
+  <br>
+  <p></p>
+  <%= f.submit %>
+<% end %>
