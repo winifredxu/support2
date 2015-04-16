@@ -1,6 +1,17 @@
 class Request < ActiveRecord::Base
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   validates :name, :email, presence: :true
   validates :done, default: false, null: false
+  
+  after_initialize :set_boolean
+
+  private
+
+  def set_boolean
+   self.done = false
+  end
   
 end

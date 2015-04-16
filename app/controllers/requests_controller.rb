@@ -39,7 +39,7 @@ class RequestsController < ApplicationController
   private
 
   def find_request
-    @req = Request.find(params[:id])
+    @req = Request.friendly.find(params[:id])
   end
 
   def request_params

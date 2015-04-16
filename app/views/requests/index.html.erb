@@ -1,6 +1,6 @@
 <h1>Support Requests</h1>
 
-<table>
+<table class="table table-striped table-bordered table-hover table-responsive">
   <tr>
     <th>Name:</th>
     <th>Email:</th>
@@ -11,15 +11,15 @@
 
   <% @req_lists.each do |q| %>
     <tr>
-      <th><%= q.name %></th>
-      <th><%= q.email %></th>
-      <th><%= q.dept %></th>
-      <th><%= q.msg %></th>
-      <th><%= link_to "Edit", edit_request_path(q), method: :get %> |
-          <%= link_to "Delete", request_path(q), method: :delete %> |
+      <td><%= q.name %></td>
+      <td><%= q.email %></td>
+      <td><%= q.dept %></td>
+      <td><%= q.msg %></td>
+      <td><%= link_to "Edit", edit_request_path(q), metdod: :get, class: "btn btn-info" %> |
+          <%= link_to "Delete", request_path(q), method: :delete, class: "btn btn-danger" %> |
           <% done_button_string = q.done ? "Done" : "Not Done" %>
-          <%= link_to done_button_string, edit_request_path(q), method: :get %>
-      </th>
+          <%= link_to done_button_string, edit_request_path(q), method: :get, class: "btn btn-primary" %>
+      </td>
     </tr>
   <% end %>
 
