@@ -13,9 +13,13 @@
     <tr>
       <td><%= q.name %></td>
       <td><a href="mailto:<%= q.email %>"><%= q.email %></td>
-      <td><%= q.dept.name %></td>
+      <td>
+        <% if q.dept != nil %>
+          <%= q.dept.name %>
+        <% end %>
+      </td>
       <td><%= q.msg %></td>
-      <td><%= link_to "Edit", edit_request_path(q), metdod: :get, class: "btn btn-info" %> |
+      <td><%= link_to "Edit", edit_request_path(q), method: :get, class: "btn btn-info" %> |
           <%= link_to "Delete", request_path(q), method: :delete, class: "btn btn-danger" %> |
           <% done_button_string = q.done ? "Done" : "Not Done" %>
           <%= link_to done_button_string, edit_request_path(q), method: :get, class: "btn btn-primary" %>
