@@ -3,9 +3,8 @@ class CreateRequests < ActiveRecord::Migration
     create_table :requests do |t|
       t.string :name
       t.string :email
-      t.string :dept
       t.text :msg
-      t.boolean :done
+      t.boolean :done, default: false
 
       t.timestamps null: false
     end

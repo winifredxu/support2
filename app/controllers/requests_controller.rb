@@ -28,7 +28,7 @@ class RequestsController < ApplicationController
   end 
 
   def index
-    @req_lists = Request.req_lists_order
+    @req_lists = Request.req_lists_order.paginate(:page => params[:page])
   end
 
   def destroy

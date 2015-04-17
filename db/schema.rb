@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 20150416232945) do
     t.string   "name"
     t.string   "email"
     t.text     "msg"
-    t.boolean  "done"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "done",       default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "slug"
     t.integer  "dept_id"
   end

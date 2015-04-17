@@ -8,7 +8,10 @@ class Request < ActiveRecord::Base
   validates :name, :email, presence: :true
   validates :done, default: false, null: false
   
-  before_create :set_boolean
+  before_create :set_blah
+
+  # # set per_page globally
+  # WillPaginate.per_page = 5
 
   def self.req_lists_order
     Request.all.order("done ASC")
@@ -16,8 +19,10 @@ class Request < ActiveRecord::Base
 
   private
 
-  def set_boolean
-   self.done = false
+  def set_blah
+    if done.nil? 
+      self.done = false
+    end
   end
   
 end

@@ -48,6 +48,8 @@ gem 'delayed_job_web'         #UI for seeing the queued tasks
 
 gem 'simple_form'  #for simple_form usage
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+gem 'will_paginate' #for pagination
+
 
 group :development do 
   gem "colorize"
