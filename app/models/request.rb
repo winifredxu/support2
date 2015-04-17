@@ -8,7 +8,7 @@ class Request < ActiveRecord::Base
   validates :name, :email, presence: :true
   validates :done, default: false, null: false
   
-  after_initialize :set_boolean
+  before_create :set_boolean
 
   private
 
