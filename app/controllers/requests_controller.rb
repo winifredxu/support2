@@ -28,7 +28,7 @@ class RequestsController < ApplicationController
   end 
 
   def index
-    @req_lists = Request.all 
+    @req_lists = Request.req_lists_order
   end
 
   def destroy

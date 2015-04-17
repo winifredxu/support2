@@ -10,6 +10,10 @@ class Request < ActiveRecord::Base
   
   before_create :set_boolean
 
+  def self.req_lists_order
+    Request.all.order("done ASC")
+  end
+
   private
 
   def set_boolean
