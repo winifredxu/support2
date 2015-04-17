@@ -28,7 +28,12 @@ class RequestsController < ApplicationController
   end 
 
   def index
-    @req_lists = Request.req_lists_order.paginate(:page => params[:page])
+    if params[:search]
+      # @req_lists = Request.search(params[:search]).order("created_at DESC")
+      @req_lists = Request.search(params[:search]).paginate(:page => params[:page], per_page: 10)
+    else
+      @req_lists = Request.req_lists_order.paginate(:page => params[:page], per_page: 10)
+    end
   end
 
   def destroy
