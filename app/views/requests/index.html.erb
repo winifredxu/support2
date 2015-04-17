@@ -1,9 +1,14 @@
-<h1>Support Requests</h1>
-
-<%= form_tag(requests_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
+<div class="col-md-12 heading-wrapper">
+  <div class="heading col-md-7">
+    <h1>Support Requests</h1>
+  </div>
+  <div class="search-bar col-md-5">
+    <%= form_tag(requests_path, :method => "get", id: "search-form", class: "pull-right") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Requests" %>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
+  </div>
+</div>
 
 <table class="table table-striped table-bordered table-hover table-responsive">
   <tr>
@@ -11,7 +16,7 @@
     <th>Email</th>
     <th>Department</th>
     <th>Message</th>
-    <th>Actions</th>
+    <th class="action-column">Actions</th>
   </tr>
   <% @req_lists.each do |q| %>
     <tr>
@@ -23,14 +28,14 @@
         <% end %>
       </td>
       <td><%= q.msg %></td>
-      <td><%= link_to "Edit", edit_request_path(q), method: :get, class: "btn btn-info" %> |
-          <%= link_to "Delete", request_path(q), method: :delete, class: "btn btn-danger" %> |
+      <td><%= link_to "Edit", edit_request_path(q), method: :get, class: "btn btn-info btn-xs" %> |
+          <%= link_to "Delete", request_path(q), method: :delete, class: "btn btn-danger btn-xs" %> |
           <% if q.done? %>
             <%= link_to "done", request_path(q, 
-              request: { done: false }), method: :patch, class: "btn btn-success" %>
+              request: { done: false }), method: :patch, class: "btn btn-success btn-xs" %>
           <% else %>
             <%= link_to "undone", request_path(q, 
-              request: { done: true }), method: :patch, class: "btn btn-warning" %>
+              request: { done: true }), method: :patch, class: "btn btn-warning btn-xs" %>
           <% end %>
       </td>
     </tr>
