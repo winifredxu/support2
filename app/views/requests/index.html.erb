@@ -21,8 +21,15 @@
       <td><%= q.msg %></td>
       <td><%= link_to "Edit", edit_request_path(q), method: :get, class: "btn btn-info" %> |
           <%= link_to "Delete", request_path(q), method: :delete, class: "btn btn-danger" %> |
-          <% done_button_string = q.done ? "Done" : "Not Done" %>
-          <%= link_to done_button_string, edit_request_path(q), method: :get, class: "btn btn-primary" %>
+
+          <% if q.done? %>
+            <%= link_to "done", request_path(q, 
+              request: { done: false }), method: :patch, class: "btn btn-success" %>
+          <% else %>
+            <%= link_to "undone", request_path(q, 
+              request: { done: true }), method: :patch, class: "btn btn-warning" %>
+          <% end %>
+
       </td>
     </tr>
   <% end %>

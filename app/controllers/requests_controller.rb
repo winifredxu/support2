@@ -28,7 +28,8 @@ class RequestsController < ApplicationController
   end 
 
   def index
-    @req_lists = Request.all end
+    @req_lists = Request.all 
+  end
 
   def destroy
     #@req set in before_action
