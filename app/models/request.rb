@@ -10,8 +10,8 @@ class Request < ActiveRecord::Base
   
   before_create :set_blah
 
-  # # set per_page globally
-  # WillPaginate.per_page = 5
+  # set per_page globally
+  WillPaginate.per_page = 5
 
   def self.req_lists_order
     Request.all.order("done ASC")

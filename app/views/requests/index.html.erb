@@ -9,9 +9,6 @@
     <th>Actions</th>
   </tr>
 
-
-  <%= will_paginate @req_lists %>
-
   <% @req_lists.each do |q| %>
     <tr>
       <td><%= q.name %></td>
@@ -38,3 +35,5 @@
   <% end %>
 
 </table>
+
+<%= will_paginate @req_lists %>
