@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150416232945) do
   end
 
   add_index "requests", ["dept_id"], name: "index_requests_on_dept_id", using: :btree
-  add_index "requests", ["slug"], name: "index_requests_on_slug", unique: true, using: :btree
+  add_index "requests", ["slug"], name: "index_requests_on_slug", using: :btree
 
   add_foreign_key "requests", "depts"
 end
