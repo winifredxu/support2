@@ -13,8 +13,6 @@
     <th>Message</th>
     <th>Actions</th>
   </tr>
-
-
   <% @req_lists.each do |q| %>
     <tr>
       <td><%= q.name %></td>
@@ -27,7 +25,6 @@
       <td><%= q.msg %></td>
       <td><%= link_to "Edit", edit_request_path(q), method: :get, class: "btn btn-info" %> |
           <%= link_to "Delete", request_path(q), method: :delete, class: "btn btn-danger" %> |
-
           <% if q.done? %>
             <%= link_to "done", request_path(q, 
               request: { done: false }), method: :patch, class: "btn btn-success" %>
@@ -35,10 +32,9 @@
             <%= link_to "undone", request_path(q, 
               request: { done: true }), method: :patch, class: "btn btn-warning" %>
           <% end %>
-
       </td>
     </tr>
   <% end %>
-
 </table>
+
 <%= will_paginate @req_lists %>

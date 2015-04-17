@@ -10,8 +10,8 @@ class Request < ActiveRecord::Base
   
   before_create :set_blah
 
-  # # set per_page globally
-  # WillPaginate.per_page = 5
+  # set per_page globally
+  WillPaginate.per_page = 5
 
   def self.search(query)
     where("name LIKE ? OR email LIKE ? OR msg LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%")
