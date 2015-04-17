@@ -24,7 +24,7 @@
 <%= simple_form_for @req, html: {class: "form-horizontal"} do |f| %>
   <%= f.input :name, label: "Name", placeholder: "input your name here" %>
   <%= f.input :email %>
-  <%= f.association :dept, as: :check_boxes %>
+  <%= f.association :dept, as: :radio_buttons, default: "Sales", class: "radio-inline" %>
   <%= f.input :msg, label: "Message" %>
   <%= f.submit "Save", class: "btn btn-primary" %>
 <% end %>

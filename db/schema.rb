@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416164539) do
+ActiveRecord::Schema.define(version: 20150416232945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "depts", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -32,14 +38,16 @@ ActiveRecord::Schema.define(version: 20150416164539) do
   create_table "requests", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "dept"
     t.text     "msg"
     t.boolean  "done"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+    t.integer  "dept_id"
   end
 
+  add_index "requests", ["dept_id"], name: "index_requests_on_dept_id", using: :btree
   add_index "requests", ["slug"], name: "index_requests_on_slug", unique: true, using: :btree
 
+  add_foreign_key "requests", "depts"
 end

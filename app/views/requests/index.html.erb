@@ -12,8 +12,8 @@
   <% @req_lists.each do |q| %>
     <tr>
       <td><%= q.name %></td>
-      <td><%= q.email %></td>
-      <td><%= q.dept %></td>
+      <td><a href="mailto:<%= q.email %>"><%= q.email %></td>
+      <td><%= q.dept.name %></td>
       <td><%= q.msg %></td>
       <td><%= link_to "Edit", edit_request_path(q), metdod: :get, class: "btn btn-info" %> |
           <%= link_to "Delete", request_path(q), method: :delete, class: "btn btn-danger" %> |
