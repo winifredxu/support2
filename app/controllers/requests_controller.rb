@@ -2,7 +2,8 @@ class RequestsController < ApplicationController
   before_action :find_request, only: [:edit, :update, :destroy]
 
   def new
-    @req = Request.new
+    @dept = Dept.first
+    @req = @dept.requests.new
   end
 
   def create
@@ -21,7 +22,7 @@ class RequestsController < ApplicationController
   def update
     #@req set in before_action
     if @req.update request_params
-      redirect_to requests_path
+      redirect_to requests_path(search: params[:search])
     else
       render :edit
     end
@@ -30,7 +31,7 @@ class RequestsController < ApplicationController
   def index
     if params[:search]
       # @req_lists = Request.search(params[:search]).order("created_at DESC")
-      @req_lists = Request.search(params[:search]).paginate(:page => params[:page], per_page: 10)
+      @req_lists = Request.search(params[:search]).order("done ASC").paginate(:page => params[:page], per_page: 10)
     else
       @req_lists = Request.req_lists_order.paginate(:page => params[:page], per_page: 10)
     end

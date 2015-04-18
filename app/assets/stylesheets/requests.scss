@@ -35,3 +35,13 @@
 .action-column {
   min-width: 177px;
 }
+
+
+.inline-class {
+  label {
+    float: left;
+  }
+  .radio {
+    float: left;
+  }
+}

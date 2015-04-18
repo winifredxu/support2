@@ -28,13 +28,14 @@
         <% end %>
       </td>
       <td><%= q.msg %></td>
-      <td><%= link_to "Edit", edit_request_path(q), method: :get, class: "btn btn-info btn-xs" %> |
+      <td><%= link_to "Edit", edit_request_path(q), method: :get, class: "btn btn-info btn-xs"%> |
           <%= link_to "Delete", request_path(q), method: :delete, class: "btn btn-danger btn-xs" %> |
+
           <% if q.done? %>
-            <%= link_to "done", request_path(q, 
+            <%= link_to "done", request_path(q, search: params[:search], 
               request: { done: false }), method: :patch, class: "btn btn-success btn-xs" %>
           <% else %>
-            <%= link_to "undone", request_path(q, 
+            <%= link_to "undone", request_path(q, search: params[:search],
               request: { done: true }), method: :patch, class: "btn btn-warning btn-xs" %>
           <% end %>
       </td>
