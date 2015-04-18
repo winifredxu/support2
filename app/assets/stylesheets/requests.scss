@@ -1,11 +1,11 @@
 .heading-wrapper {
   // border-bottom: 1px solid black;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 0;
 }
 
 .heading {
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 10px;
   padding: 0;
   h1 {
@@ -15,13 +15,17 @@
 }
 
 .search-bar {
-  margin-top: 30px;
+  margin-top: 40px;
   padding: 0;
   input {
     height: 39px;
   }
     #search {
-      width: 130px;
+      width: 120px;
+      -webkit-transition: all 0.3s ease-in;
+      -moz-transition: all 0.3s ease-in;
+      -o-transition: all 0.3s ease-in;
+      transition: all 0.3s ease-in;
     }
     #search:focus {
       min-width: 270px;
@@ -36,7 +40,6 @@
   min-width: 177px;
 }
 
-
 .inline-class {
   label {
     float: left;
@@ -44,4 +47,17 @@
   .radio {
     float: left;
   }
+}
+
+.navbar {
+  background-color: #F9F9F9;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 0;
+  border-bottom: 1px solid #337AB7;
+  position: fixed;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  z-index: 1;
 }
